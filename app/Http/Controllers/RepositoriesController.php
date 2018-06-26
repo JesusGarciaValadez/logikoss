@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repository as Repository;
+use App\Http\Requests\RepositoryRequest;
 
 use GrahamCampbell\GitHub\Facades\GitHub as Github;
 
@@ -14,77 +15,56 @@ class RepositoriesController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function index(Request $request)
+  public function index()
   {
-    $repositories = Repository::all();
+    $orderBy = 'repo_updated_at';
+    $direction = 'desc';
+    $repositories = Repository::orderBy($orderBy, $direction)->get();
 
     return view('repositories.index')
-            ->withRepositories($repositories);
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create()
-  {
-    //
-  }
-
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
-  public function store(Request $request)
-  {
-    //
+            ->withRepositories($repositories)
+            ->withOrderBy($orderBy)
+            ->withDirection($direction);
   }
 
   /**
    * Display the specified resource.
    *
-   * @param  int  $id
+   * @param  string  $orderBy
+   * @param  string  $direction
    * @return \Illuminate\Http\Response
    */
-  public function show($id)
+  public function show($orderBy, $direction)
   {
-    //
+    $repositories = Repository::orderBy($orderBy, $direction)
+                              ->get();
+
+    return view('repositories.index')
+            ->withRepositories($repositories)
+            ->withOrderBy($orderBy)
+            ->withDirection($direction);
   }
 
   /**
-   * Show the form for editing the specified resource.
+   * Display the specified resource.
    *
-   * @param  int  $id
+   * @param  RepositoryRequest  $request
    * @return \Illuminate\Http\Response
    */
-  public function edit($id)
+  public function search(RepositoryRequest $request)
   {
-    //
-  }
+    $orderBy = 'repo_updated_at';
+    $direction = 'desc';
+    $repositorySearched = '%'.$request->name.'%';
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function update(Request $request, $id)
-  {
-    //
-  }
+    $repositories = Repository::where('name', 'like', $repositorySearched)
+                              ->orderBy('name', 'asc')
+                              ->orderBy($orderBy, $direction)
+                              ->get();
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy($id)
-  {
-    //
+    return view('repositories.index')
+            ->withRepositories($repositories)
+            ->withOrderBy($orderBy)
+            ->withDirection($direction);
   }
 }
