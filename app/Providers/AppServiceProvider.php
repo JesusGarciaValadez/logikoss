@@ -15,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
   public function boot()
   {
     Blade::component('shared.components.navbar', 'navbar');
+    Blade::component('shared.components.nav', 'nav');
+    Blade::component('shared.components.search-form', 'searchForm');
+    Blade::component('shared.components.repository-list-item', 'repositoryListItem');
   }
 
   /**

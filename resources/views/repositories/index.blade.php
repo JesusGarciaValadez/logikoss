@@ -12,28 +12,37 @@
           </div>
 
           <div class="panel-body">
-            <p>Teaching the world how to effectively use the GitHub collaboration platform</p>
+            <h2>Teaching the world how to effectively use the GitHub collaboration platform.</h2>
+
+            @searchForm()
+            @endsearchForm
           </div>
 
-          <ul class="list-group">
-            @foreach ($repositories as $repository => $attribute)
-              <li class="list-group-item">
-                <p>
-                  <strong>
-                    <a
-                      href="{{ $attribute['html_url'] }}"
-                      title="{{ $attribute['name'] }}"
-                      target="_blank">
-                      {{ $attribute['name'] }}
-                    </a>
-                  </strong>
-                  Actualizado: @php \Carbon($attribute['updated_at']) @endphp
-                </p>
-              </li>
-            @endforeach
-          </ul>
+          <div class="list-group">
+            @if ($repositories->count() <= 0)
+              <p class="list-group-item">
+                <h3>No hay repositorios disponibles.</h3>
+              </p>
+            @else
+              @nav([
+                'orderBy' => $orderBy,
+                'direction' => $direction,
+              ])
+              @endnav
 
-          <div class="panel-footer"></div>
+              @foreach ($repositories as $repository)
+                @repositoryListItem([
+                  'loop' => $loop,
+                  'repository' => $repository,
+                ])
+                @endrepositoryListItem
+              @endforeach
+            @endif
+          </div>
+
+          <div class="panel-footer clearfix">
+            <span class="pull-right">Prueba realizada por <a href="mailto:jesus.garciav@me.com" title="Correo de Jesús García" target="_blank">Jesús García</a></span>
+          </div>
         </div>
       </div>
     </div>
