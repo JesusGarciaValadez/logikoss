@@ -3,8 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-use Carbon\Carbon as Carbon;
+use Illuminate\Support\Carbon as Carbon;
 
 class Repository extends Model
 {
@@ -35,49 +34,43 @@ class Repository extends Model
    * @var array
    */
   protected $dates = [
-    // 'repo_created_at',
-    // 'repo_updated_at',
-    // 'repo_pushed_at',
+    'repo_created_at',
+    'repo_updated_at',
+    'repo_pushed_at',
     'created_at',
     'updated_at'
   ];
 
-  // /**
-  //  * Get the repository's created at date
-  //  *
-  //  * @param  string $value
-  //  * @return string
-  //  */
-  // public function getRepoCreatedAtAttribute()
-  // {
-  //   \Carbon::setLocale('mx');
-  //   \Carbon::setUtf8(true);
-  //   return \Carbon::createFromDate($this->repo_created_at);
-  // }
-  //
-  // /**
-  //  * Get the repository's updated at date
-  //  *
-  //  * @param  string $value
-  //  * @return string
-  //  */
-  // public function getRepoUpdatedAtAttribute()
-  // {
-  //   \Carbon::setLocale('mx');
-  //   \Carbon::setUtf8(true);
-  //   return \Carbon::createFromDate($this->repo_updated_at);
-  // }
-  //
-  // /**
-  //  * Get the repository's pushed at date
-  //  *
-  //  * @param  string $value
-  //  * @return string
-  //  */
-  // public function getRepoPushedAtAttribute()
-  // {
-  //   \Carbon::setLocale('mx');
-  //   \Carbon::setUtf8(true);
-  //   return \Carbon::createFromDate($this->reprepo_pushed_at);
-  // }
+  /**
+   * Get the repository's created at date
+   *
+   * @param  string $value
+   * @return string
+   */
+  public function setRepoCreatedAtAttribute($value)
+  {
+    $this->attributes['repo_created_at'] = Carbon::parse($value)->toDateTimeString();
+  }
+
+  /**
+   * Get the repository's updated at date
+   *
+   * @param  string $value
+   * @return string
+   */
+  public function setRepoUpdatedAtAttribute($value)
+  {
+    $this->attributes['repo_updated_at'] = Carbon::parse($value)->toDateTimeString();
+  }
+
+  /**
+   * Get the repository's pushed at date
+   *
+   * @param  string $value
+   * @return string
+   */
+  public function setRepoPushedAtAttribute($value)
+  {
+    $this->attributes['repo_pushed_at'] = Carbon::parse($value)->toDateTimeString();
+  }
 }

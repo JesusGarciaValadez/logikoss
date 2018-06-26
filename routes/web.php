@@ -11,4 +11,9 @@
 |
 */
 
-Route::resource('/', 'RepositoriesController');
+Route::prefix('/repositories')->name('repositories.')->group(function ()
+{
+  Route::get('/', 'RepositoriesController@index')->name('index');
+  Route::get('/order_by/{orderBy}/direction/{direction}', 'RepositoriesController@show')->name('orderBy');
+  Route::post('/', 'RepositoriesController@search')->name('search');
+});
