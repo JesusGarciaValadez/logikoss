@@ -26,10 +26,9 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
-    // $schedule->command('migrate:fresh')
-    //          ->hourly();
-    $schedule->job(new StoreRepositories)
-             ->everyMinute();
+    $schedule->job(new StoreRepositories, 'work')
+             ->hourly()
+             ->withoutOverlapping();
   }
 
   /**

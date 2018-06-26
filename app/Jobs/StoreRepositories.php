@@ -7,6 +7,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Carbon\Carbon;
 
 use App\Repository as Repository;
 use GrahamCampbell\GitHub\Facades\GitHub as Github;
@@ -16,46 +17,60 @@ class StoreRepositories implements ShouldQueue
   use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
   /**
+   * The number of times the job may be attempted.
+   *
+   * @var int
+   */
+  public $tries = 1;
+
+  /**
    * Indicates the username of the github account to retrieve info.
    *
    * @var string
    */
-  private $_username = 'githubtraining';
+  private $_username;
 
   /**
    * Indicates the type of the github account to retrieve info.
    *
    * @var string
    */
-  private $_type = 'owner';
+  private $_type;
 
   /**
    * Indicates how the info account will be sorted.
    *
    * @var string
    */
-  private $_sort = 'name';
+  private $_sort;
 
   /**
    * Indicates the direction of how will be sorted the info of the account.
    *
    * @var string
    */
-  private $_direction = 'desc';
+  private $_direction;
 
   /**
    * Indicates the vibility of the repositories.
    *
    * @var string
    */
-  private $_visibility = 'all';
+  private $_visibility;
 
   /**
    * Indicates the affiliation of the repositories.
    *
    * @var string
    */
-  private $_affiliation = null;
+  private $_affiliation;
+
+  /**
+   * Collection of repositories saved.
+   *
+   * @var Repository
+   */
+  public $repositories;
 
   /**
    * Create a new job instance.
@@ -64,7 +79,12 @@ class StoreRepositories implements ShouldQueue
    */
   public function __construct()
   {
-    //
+    $this->_username = 'githubtraining';
+    $this->_type = 'owner';
+    $this->_sort = 'name';
+    $this->_direction = 'desc';
+    $this->_visibility = 'all';
+    $this->_affiliation = null;
   }
 
   /**
@@ -100,5 +120,7 @@ class StoreRepositories implements ShouldQueue
         'repo_pushed_at' => $data['pushed_at'],
       ]);
     }
+
+    $this->repositories = Repository::all();
   }
 }
