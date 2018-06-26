@@ -26,10 +26,10 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
-    // $schedule->command('inspire')
+    // $schedule->command('migrate:fresh')
     //          ->hourly();
     $schedule->job(new StoreRepositories)
-             ->hourly();
+             ->everyMinute();
   }
 
   /**

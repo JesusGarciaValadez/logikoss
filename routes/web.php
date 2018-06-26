@@ -11,4 +11,4 @@
 |
 */
 
-Route::resource('/', 'GithubController');
+Route::resource('/', 'RepositoriesController');

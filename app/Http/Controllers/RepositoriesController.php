@@ -3,36 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use GrahamCampbell\GitHub\Facades\GitHub;
+use App\Repository as Repository;
 
-class GithubController extends Controller
+use GrahamCampbell\GitHub\Facades\GitHub as Github;
+
+class RepositoriesController extends Controller
 {
-  private $_username = 'githubtraining';
-  private $_type = 'owner';
-  private $_sort = 'updated_at';
-  private $_direction = 'desc';
-  private $_visibility = 'all';
-  private $_affiliation = null;
-
   /**
    * Display a listing of the resource.
    *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function index(Request $request)
   {
-    $repositories = GitHub::user()
-                          ->repositories(
-                            $this->_username,
-                            $this->_type,
-                            $this->_sort,
-                            $this->_direction,
-                            $this->_visibility,
-                            $this->_affiliation
-                          );
-
-    \Debugbar::info($repositories);
-    \Debugbar::info($repositories[0]);
+    $repositories = Repository::all();
 
     return view('repositories.index')
             ->withRepositories($repositories);
