@@ -27,10 +27,9 @@ class CreateRepositoriesTable extends Migration
       $table->text("url");
       $table->text("commits_url");
       $table->text("git_commits_url");
-      $table->string("repo_created_at")->nullable();
-      $table->string("repo_updated_at")->nullable();
-      $table->string("repo_pushed_at")->nullable();
-      $table->timestamp("api_last_updated_at");
+      $table->datetime("repo_created_at");
+      $table->datetime("repo_updated_at");
+      $table->datetime("repo_pushed_at");
 
       $table->timestamps();
     });
