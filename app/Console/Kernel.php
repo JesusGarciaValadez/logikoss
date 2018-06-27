@@ -28,8 +28,7 @@ class Kernel extends ConsoleKernel
   protected function schedule(Schedule $schedule)
   {
     $schedule->job(new StoreRepositories, 'work')
-             ->hourly()
-             ->withoutOverlapping();
+             ->hourly();
   }
 
   /**
