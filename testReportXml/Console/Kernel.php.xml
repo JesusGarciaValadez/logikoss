@@ -2,17 +2,17 @@
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
   <file name="Kernel.php" path="/Console">
     <totals>
-      <lines total="46" comments="18" code="28" executable="7" executed="7" percent="100.00"/>
+      <lines total="45" comments="18" code="27" executable="6" executed="6" percent="100.00"/>
       <methods count="2" tested="2" percent="100.00"/>
       <functions count="0" tested="0" percent="0"/>
       <classes count="1" tested="1" percent="100.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Console\Kernel" start="11" executable="7" executed="7" crap="2">
+    <class name="App\Console\Kernel" start="11" executable="6" executed="6" crap="2">
       <package full="" name="" sub="" category=""/>
       <namespace name="App\Console"/>
-      <method name="schedule" signature="schedule(Schedule $schedule)" start="28" end="33" crap="1" executable="4" executed="4" coverage="100"/>
-      <method name="commands" signature="commands()" start="40" end="45" crap="1" executable="3" executed="3" coverage="100"/>
+      <method name="schedule" signature="schedule(Schedule $schedule)" start="28" end="32" crap="1" executable="3" executed="3" coverage="100"/>
+      <method name="commands" signature="commands()" start="39" end="44" crap="1" executable="3" executed="3" coverage="100"/>
     </class>
     <coverage>
       <line nr="30">
@@ -57,7 +57,7 @@
         <covered by="Tests\Unit\RepositoryTest::testDatabaseTest"/>
         <covered by="Tests\Unit\RepositoryTest::testModelFactoryTest"/>
       </line>
-      <line nr="33">
+      <line nr="41">
         <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedTest"/>
         <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedOnWorkQueueTest"/>
         <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedTwiceTest"/>
@@ -71,7 +71,7 @@
         <covered by="Tests\Unit\RepositoryTest::testDatabaseTest"/>
         <covered by="Tests\Unit\RepositoryTest::testModelFactoryTest"/>
       </line>
-      <line nr="42">
+      <line nr="43">
         <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedTest"/>
         <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedOnWorkQueueTest"/>
         <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedTwiceTest"/>
@@ -86,20 +86,6 @@
         <covered by="Tests\Unit\RepositoryTest::testModelFactoryTest"/>
       </line>
       <line nr="44">
-        <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedTest"/>
-        <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedOnWorkQueueTest"/>
-        <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedTwiceTest"/>
-        <covered by="Tests\Feature\QueueTest::testStrangeJobIsNotPushedTest"/>
-        <covered by="Tests\Feature\ViewTest::testResponseIs200"/>
-        <covered by="Tests\Feature\ViewTest::testSuccessfullStatusCode"/>
-        <covered by="Tests\Feature\ViewTest::testViewIs"/>
-        <covered by="Tests\Feature\ViewTest::testGuestUser"/>
-        <covered by="Tests\Feature\ViewTest::testSeeTitle"/>
-        <covered by="Tests\Feature\ViewTest::testSeeDescription"/>
-        <covered by="Tests\Unit\RepositoryTest::testDatabaseTest"/>
-        <covered by="Tests\Unit\RepositoryTest::testModelFactoryTest"/>
-      </line>
-      <line nr="45">
         <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedTest"/>
         <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedOnWorkQueueTest"/>
         <covered by="Tests\Feature\QueueTest::testStoreRepositoriesIsPushedTwiceTest"/>
@@ -282,37 +268,30 @@
         <token name="T_STRING">hourly</token>
         <token name="T_OPEN_BRACKET">(</token>
         <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="32">
-        <token name="T_WHITESPACE">             </token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">withoutOverlapping</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="33">
+      <line no="32">
         <token name="T_WHITESPACE">  </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="34"/>
-      <line no="35">
+      <line no="33"/>
+      <line no="34">
         <token name="T_WHITESPACE">  </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="36">
+      <line no="35">
         <token name="T_DOC_COMMENT">   * Register the commands for the application.</token>
       </line>
-      <line no="37">
+      <line no="36">
         <token name="T_DOC_COMMENT">   *</token>
       </line>
-      <line no="38">
+      <line no="37">
         <token name="T_DOC_COMMENT">   * @return void</token>
       </line>
-      <line no="39">
+      <line no="38">
         <token name="T_DOC_COMMENT">   */</token>
       </line>
-      <line no="40">
+      <line no="39">
         <token name="T_WHITESPACE">  </token>
         <token name="T_PROTECTED">protected</token>
         <token name="T_WHITESPACE"> </token>
@@ -322,11 +301,11 @@
         <token name="T_OPEN_BRACKET">(</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="41">
+      <line no="40">
         <token name="T_WHITESPACE">  </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="42">
+      <line no="41">
         <token name="T_WHITESPACE">    </token>
         <token name="T_VARIABLE">$this</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -338,8 +317,8 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="43"/>
-      <line no="44">
+      <line no="42"/>
+      <line no="43">
         <token name="T_WHITESPACE">    </token>
         <token name="T_REQUIRE">require</token>
         <token name="T_WHITESPACE"> </token>
@@ -349,14 +328,14 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="45">
+      <line no="44">
         <token name="T_WHITESPACE">  </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="46">
+      <line no="45">
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="47"/>
+      <line no="46"/>
     </source>
   </file>
 </phpunit>

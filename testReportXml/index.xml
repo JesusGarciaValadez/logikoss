@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
-  <build time="Wed Jun 27 3:33:18 GMT+0000 2018" phpunit="7.2.6" coverage="6.0.7">
+  <build time="Wed Jun 27 5:56:33 GMT+0000 2018" phpunit="7.2.6" coverage="6.0.7">
     <runtime name="PHP" version="7.1.18-1+ubuntu16.04.1+deb.sury.org+1" url="https://secure.php.net/"/>
     <driver name="xdebug" version="2.6.0"/>
   </build>
@@ -21,7 +21,7 @@
     </tests>
     <directory name="/">
       <totals>
-        <lines total="975" comments="390" code="585" executable="115" executed="51" percent="44.35"/>
+        <lines total="974" comments="390" code="584" executable="114" executed="50" percent="43.86"/>
         <methods count="30" tested="15" percent="50.00"/>
         <functions count="0" tested="0" percent="0"/>
         <classes count="16" tested="6" percent="37.50"/>
@@ -29,7 +29,7 @@
       </totals>
       <directory name="Console">
         <totals>
-          <lines total="46" comments="18" code="28" executable="7" executed="7" percent="100.00"/>
+          <lines total="45" comments="18" code="27" executable="6" executed="6" percent="100.00"/>
           <methods count="2" tested="2" percent="100.00"/>
           <functions count="0" tested="0" percent="0"/>
           <classes count="1" tested="1" percent="100.00"/>
@@ -37,7 +37,7 @@
         </totals>
         <file name="Kernel.php" href="Console/Kernel.php.xml">
           <totals>
-            <lines total="46" comments="18" code="28" executable="7" executed="7" percent="100.00"/>
+            <lines total="45" comments="18" code="27" executable="6" executed="6" percent="100.00"/>
             <methods count="2" tested="2" percent="100.00"/>
             <functions count="0" tested="0" percent="0"/>
             <classes count="1" tested="1" percent="100.00"/>
