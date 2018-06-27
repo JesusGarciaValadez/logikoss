@@ -11,8 +11,8 @@ $factory->define(App\Repository::class, function (Faker $faker) {
     'url' => $faker->url(),
     'commits_url' => $faker->url(),
     'git_commits_url' => $faker->url(),
-    'repo_created_at' => $faker->dateTime('now', 'America/Mexico_City'),
-    'repo_updated_at' => $faker->dateTime('now', 'America/Mexico_City'),
-    'repo_pushed_at' => $faker->dateTime('now', 'America/Mexico_City')
+    'repo_created_at' => $faker->dateTime('now'),
+    'repo_updated_at' => $faker->dateTime('now'),
+    'repo_pushed_at' => $faker->dateTime('now')
   ];
 });
