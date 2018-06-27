@@ -6,6 +6,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 use App\Jobs\StoreRepositories;
+use App\Jobs\GenerateCodeCoverage;
 
 class Kernel extends ConsoleKernel
 {
