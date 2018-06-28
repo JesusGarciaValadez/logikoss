@@ -34,6 +34,7 @@
         type="submit"
         class="btn btn-primary"
         id="search"
+        dusk="search"
         name="search">Buscar repositorio</button>
     </div>
   </div>

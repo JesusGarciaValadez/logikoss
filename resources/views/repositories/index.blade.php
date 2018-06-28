@@ -20,9 +20,7 @@
 
           <div class="list-group">
             @if ($repositories->count() <= 0)
-              <p class="list-group-item">
-                <h3>No hay repositorios disponibles.</h3>
-              </p>
+              <h3 class="list-group-item">No hay repositorios disponibles.</h3>
             @else
               @nav([
                 'orderBy' => $orderBy,

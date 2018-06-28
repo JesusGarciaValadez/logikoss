@@ -28,7 +28,7 @@ class RepositoriesController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Display a set of specified resources ordered by a field.
    *
    * @param  string  $orderBy
    * @param  string  $direction
