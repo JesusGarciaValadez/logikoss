@@ -27,7 +27,10 @@ Es importante también crear las siguientes variables en el archivo __".env"__ y
 
 La variable __"GITHUB_TOKEN"__ necesita un OAuth Personal Token válido para que pueda accederse a la API de Github.
 
-Ya que esté creada la base de datos y se hayan configurado las variables de entorno, hay que ejecutar las migraciones con el comando __"php artisan migrate"__. Y poblar la base de datos con con el comando __"php artisan db:seed"__.
+Ya que esté creada la base de datos y se hayan configurado las variables de entorno se deben realizar las siguientes tareas:
+- Generar una llave de encriptación con el comando __"php artisan key:generate"__
+- Ejecutar las migraciones con el comando __"php artisan migrate"__.
+- Y poblar la base de datos con con el comando __"php artisan db:seed"__.
 
 Con eso la aplicación esta configurada para trabajar correctamente. Sin embargo, es posible actualizar la información de la base de datos cada hora. Para eso, es necesario configurar una conexión de [__"Redis"__](https://laravel.com/docs/5.6/redis). Dicha conexión sirve para dar de alta una [cola de redis](https://laravel.com/docs/5.6/queues) llamada __"work"__. Para que esa cola se mantenga activa, se recomienda usar [__"Supervisor"__](https://laravel.com/docs/5.6/queues#supervisor-configuration). Además, es necesario dar de alta un crobjob para la ejecución de [tareas calendarizadas](https://laravel.com/docs/5.6/scheduling).
 
