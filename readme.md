@@ -1,59 +1,39 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<p align="center"><img src="http://logikoss.com/assets/images/logikoss_logo.png"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Sobre la prueba
 
-## About Laravel
+Esta prueba está desarrollada en un entorno MacOS 10.13.5 con [Laravel Homestead](https://laravel.com/docs/5.6/homestead) virtualizado con [VirtualBox](https://www.virtualbox.org/). Para el entorno de pruebas se utilizaron las siguientes tecnologías:
+- [Rutas](https://laravel.com/docs/routing).
+- [Eloquent](https://laravel.com/docs/eloquent).
+- [Migraciones](https://laravel.com/docs/migrations).
+- [Queues](https://laravel.com/docs/queues).
+- [Task scheduling](https://laravel.com/docs/5.6/scheduling).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+Además, las siguientes tecnologías se utilizaron para el desarrollo por lo para tener el mismo entorno, es necesario implementarlas.
+- [Laravel Horizon](https://laravel.com/docs/5.6/horizon).
+- [Browser Tests (Laravel Dusk)](https://laravel.com/docs/5.6/dusk).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Primeros pasos
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+Lo primero es descargar el repositorio. Una vez que tengamos el repositorio, hay que descargar las dependencias de Composer con __"composer install"__.
 
-## Learning Laravel
+Ya con las dependencias de Composer, tenemos que copiar el contenido del archivo __".env.example"__ y pegarlo en un nuevo archivo __".env"__. Dentro de este archivo tenemos que poner las variables correspondientes a nuestro entorno de desarrollo. Esto incluye la creación de una base de datos y la asociación o creación de un usuario a la misma.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+Es importante también crear las siguientes variables en el archivo __".env"__ ya que son importantes para que la aplicación pueda funcionar correctamente.
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+- __"GITHUB_CONNECTION=main"__
+- __"GITHUB_TOKEN="__
+- __"GITHUB_METHOD=token"__
 
-## Laravel Sponsors
+La variable __"GITHUB_TOKEN"__ necesita un OAuth Personal Token válido para que pueda accederse a la API de Github.
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+Ya que esté creada la base de datos y se hayan configurado las variables de entorno, hay que ejecutar las migraciones con el comando __"php artisan migrate"__. Y poblar la base de datos con con el comando __"php artisan db:seed"__.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
+Con eso la aplicación esta configurada para trabajar correctamente. Sin embargo, es posible actualizar la información de la base de datos cada hora. Para eso, es necesario configurar una conexión de [__"Redis"__](https://laravel.com/docs/5.6/redis). Dicha conexión sirve para dar de alta una [cola de redis](https://laravel.com/docs/5.6/queues) llamada __"work"__. Para que esa cola se mantenga activa, se recomienda usar [__"Supervisor"__](https://laravel.com/docs/5.6/queues#supervisor-configuration). Además, es necesario dar de alta un crobjob para la ejecución de [tareas calendarizadas](https://laravel.com/docs/5.6/scheduling).
 
-## Contributing
+Además, se incluyen varios formatos de code coverage para su posterior lectura.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Para cualquier duda, por favor comunicarse al correo [jesus.garciav@me.com](mailto:jesus.garciav@me.com).
 
 ## License
 
