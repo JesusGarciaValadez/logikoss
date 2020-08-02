@@ -10,10 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::prefix('/repositories')->name('repositories.')->group(function ()
 {
   Route::get('/', 'RepositoriesController@index')->name('index');
   Route::get('/order_by/{orderBy}/direction/{direction}', 'RepositoriesController@show')->name('orderBy');
   Route::post('/', 'RepositoriesController@search')->name('search');
 });
+
+Route::get('/', 'GithubUserInfoController@index');
