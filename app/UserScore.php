@@ -12,10 +12,10 @@ class UserScore
     private static int $totalScore = 0;
     private static Event $event;
 
-    static public function get (Collection $userInfo): string
+    static public function get (Collection $githubUserData): string
     {
-        $userInfo->map(function ($event) {
-            $eventType = (collect($event))->get('type');
+        $githubUserData->map(function ($userActivity) {
+            $eventType = (collect($userActivity))->get('type');
             self::$event = Factory::getEvent($eventType);
             self::$totalScore += self::$event->getScore();
         });
