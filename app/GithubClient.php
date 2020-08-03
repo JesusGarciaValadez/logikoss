@@ -22,7 +22,7 @@ class GithubClient
     /**
      * @return Collection
      */
-    public function getUserData (string $user, ?array $options = [ 'Accept' => 'application/vnd.github.v3+json' ]): Collection
+    public function getUserPublicEvents (string $user, ?array $options = [ 'Accept' => 'application/vnd.github.v3+json' ]): Collection
     {
         $body = ($this->httpClient->request(self::GET, sprintf(self::URL, $user), $options))->getBody();
         return getCollectionFromJson($body);

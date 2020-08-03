@@ -17,6 +17,6 @@ class GithubUserInfoController extends Controller
     {
         $httpClient = new Guzzle();
         $githubClient = new GithubClient($httpClient);
-        return UserScore::get($githubClient->getUserData($githubUsername));
+        return UserScore::get($githubClient->getUserPublicEvents($githubUsername));
     }
 }
