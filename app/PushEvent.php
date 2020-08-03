@@ -4,7 +4,7 @@ namespace App;
 
 class PushEvent implements Interfaces\Event
 {
-    public const PUSH_EVENT_TYPE = 'PushEvent';
+    public const PUSH_EVENT = 'PushEvent';
     private int $score = 10;
 
     public function getScore(): int

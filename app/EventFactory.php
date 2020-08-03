@@ -12,11 +12,11 @@ class EventFactory
         Log::info($event);
         switch ($event)
         {
-            case PushEvent::PUSH_EVENT_TYPE:
+            case PushEvent::PUSH_EVENT:
                 return new PushEvent($event);
-            case PullRequestEvent::PULL_REQUEST_EVENT_TYPE:
+            case PullRequestEvent::PULL_REQUEST_EVENT:
                 return new PullRequestEvent($event);
-            case IssueCommentEvent::ISSUE_COMMENT_EVENT_TYPE:
+            case IssueCommentEvent::ISSUE_COMMENT_EVENT:
                 return new IssueCommentEvent($event);
             default:
                 return new DefaultEvent($event);
