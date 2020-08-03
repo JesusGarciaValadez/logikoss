@@ -21,8 +21,9 @@ class GuzzleClient implements HttpClient
 
     /**
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\RequestException
      */
-    public function request(string $method, string $url, ?array $options = null): ResponseInterface
+    public function request(string $method, string $url, ?array $options = null): ?ResponseInterface
     {
         try {
             return $this->client->request($method, $url, $options);
@@ -31,6 +32,8 @@ class GuzzleClient implements HttpClient
         } catch (GuzzleException $exception) {
             Log::error($exception->getMessage());
         }
+
+        return null;
     }
 
     public function getBody($response): string

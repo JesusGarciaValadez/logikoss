@@ -21,7 +21,17 @@ class GithubClient
 
     public function getUserPublicEvents (string $user, ?array $options = [ 'Accept' => 'application/vnd.github.v3+json' ]): Collection
     {
-        $body = ($this->httpClient->request(self::GET, sprintf(self::URL . '/users/%s/events/public', $user), $options))->getBody();
-        return getCollectionFromJson($body);
+        $request = $this->httpClient->request(self::GET, sprintf(self::URL . '/users/%s/events/public', $user), $options);
+
+        if (empty($request)) {
+            return Collection::make([]);
+        }
+
+        return getCollectionFromJson($request->getBody());
+    }
+
+    public function hasPublicEvents (Collection $publicEvents): bool
+    {
+        return empty($publicEvents->count());
     }
 }

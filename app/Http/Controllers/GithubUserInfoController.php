@@ -17,6 +17,12 @@ class GithubUserInfoController extends Controller
     {
         $httpClient = new Guzzle();
         $githubClient = new GithubClient($httpClient);
-        return UserScore::get($githubClient->getUserPublicEvents($githubUsername));
+        $publicEvents = $githubClient->getUserPublicEvents($githubUsername);
+
+        if ($githubClient->hasPublicEvents($publicEvents)) {
+            return 'The username doesn\'t exist, there\'s a typo in the username or, the user doesn\'t have any activity.';
+        }
+
+        return UserScore::get($publicEvents);
     }
 }
