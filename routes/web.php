@@ -17,4 +17,7 @@ Route::prefix('/repositories')->name('repositories.')->group(function ()
   Route::post('/', 'RepositoriesController@search')->name('search');
 });
 
-Route::get('/', 'GithubUserInfoController@index');
+Route::prefix('/user')->name('user.')->group(function ()
+{
+    Route::get('/{githubUsername}', 'GithubUserInfoController@index')->name('account');
+});

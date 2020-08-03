@@ -11,12 +11,12 @@ class GithubUserInfoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return String
      */
-    public function index()
+    public function index(String $githubUsername)
     {
         $httpClient = new Guzzle();
         $githubClient = new GithubClient($httpClient);
-        return UserScore::get($githubClient->getUserData('JesusGarciaValadez'));
+        return UserScore::get($githubClient->getUserData($githubUsername));
     }
 }
